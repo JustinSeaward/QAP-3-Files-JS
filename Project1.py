@@ -5,8 +5,8 @@
 # Date: July 11, 2025 - ??
 
 # Define program laibraries.
-import datetime
 
+import datetime
 import FormatValues
 
 # Define program constants.
@@ -194,83 +194,79 @@ while True:
             break
         #print(SalesPersonName) #test print
 
-    # Start of program calculations.
+        # Start of program calculations.
 
-    # Calculation for price after trade-in.
-    PriAftTrade = SellPrice - TradeAmt
+        # Calculation for price after trade-in.
+        PriAftTrade = SellPrice - TradeAmt
 
-    # if statement for the licence fee.
-    if SellPrice <= 15000:
-        LincFee = LICN_FEE_LOW
-    elif SellPrice > 15000:
-        LincFee = LICN_FEE_HIGH
-    else:
-        break
+        # if statement for the licence fee.
+        if SellPrice <= 15000:
+            LincFee = LICN_FEE_LOW
+        elif SellPrice > 15000:
+            LincFee = LICN_FEE_HIGH
+        else:
+            break
 
-    # Calculation for tranfer fee with if statement.
-    TransFee = SellPrice * 0.01
-    if SellPrice > 20000:
-        TransFee = SellPrice + (SellPrice * 0.016)
+        # Calculation for tranfer fee with if statement.
+        TransFee = SellPrice * 0.01
+        if SellPrice > 20000:
+            TransFee = SellPrice + (SellPrice * 0.016)
 
-    # Calculation for sub total.
-    SubTotal = PriAftTrade + LincFee + TransFee
+        # Calculation for sub total.
+        SubTotal = PriAftTrade + LincFee + TransFee
 
-    # Calculation for taxes.
-    TaxTotal = SubTotal * HST_ESP
+        # Calculation for taxes.
+        TaxTotal = SubTotal * HST_ESP
 
-    # Calculation for total sales price.
-    TotalSales = SubTotal + TaxTotal
+        # Calculation for total sales price.
+        TotalSales = SubTotal + TaxTotal
 
-    # Recepit formats.
-    # Invoice date format.
-    CURR_DATEDsp = datetime.datetime.strftime(CURR_DATE, "%b %d, %Y")
+        # Recepit formats.
+        # Invoice date format.
+        CurrDateDsp = datetime.datetime.strftime(CURR_DATE, "%b %d, %Y")
 
-    # Format for the Receipt ID.
-    ReceiptID = CustFN[0] + CustLN[0] + "-" + PlateNum[3:6] + "-" + PhoNum[6:11] 
+        # Format for the Receipt ID.
+        ReceiptID = CustFN[0] + CustLN[0] + "-" + PlateNum[3:6] + "-" + PhoNum[6:11] 
 
-    # Format for sell price.
-    SellPriceDsp = FormatValues.FDollar2(SellPrice)
+        # Format for sell price.
+        SellPriceDsp = FormatValues.FDollar2(SellPrice)
 
-    # Format for trade-in.
-    TradeAmtDsp = FormatValues.FDollar2(TradeAmt)
+        # Format for trade-in.
+        TradeAmtDsp = FormatValues.FDollar2(TradeAmt)
 
-    # Format for customer name.
-    CustNameDsp = CustName = CustFN[0] + "." + " " + CustLN
+        # Format for customer name.
+        CustNameDsp = CustName = CustFN[0] + "." + " " + CustLN
 
-    # Format for phone number.
-    PhoNumDsp = "(" + PhoNum[0:3] + ")" + " " + PhoNum[3:6] + "-" + PhoNum[6:10] 
+        # Format for phone number.
+        PhoNumDsp = "(" + PhoNum[0:3] + ")" + " " + PhoNum[3:6] + "-" + PhoNum[6:10] 
 
-    # Format for car details.
-    CarDetailsDsp = CarYear + " " + CarMake + " " + CarModel 
+        # Format for car details.
+        CarDetailsDsp = CarYear + " " + CarMake + " " + CarModel 
 
-    # Format for price after trade-in.
-    PriAftTradeDsp = FormatValues.FDollar2(PriAftTrade)
+        # Format for price after trade-in.
+        PriAftTradeDsp = FormatValues.FDollar2(PriAftTrade)
 
-    # Format for license fee.
-    LincDsp = FormatValues.FDollar2(LincFee)
+        # Format for license fee.
+        LincDsp = FormatValues.FDollar2(LincFee)
 
-    # Fromat for transfer fee:
-    TransFeeDsp = FormatValues.FDollar2(TransFee)
+        # Fromat for transfer fee:
+        TransFeeDsp = FormatValues.FDollar2(TransFee)
 
-    # Format for car details.
-    CarDetailsDsp = CarYear + " " + CarMake + " " + CarModel
+        # Format for sub total.
+        SubTotalDsp = FormatValues.FDollar2(SubTotal)
 
-    # Format for sub total.
-    SubTotalDsp = FormatValues.FDollar2(SubTotal)
+        # Format for HST.
+        HSTDsp = FormatValues.FDollar2(TaxTotal)
 
-    # Format for HST.
-    HSTDsp = FormatValues.FDollar2(TaxTotal)
-
-    # Format for total sales.
-    TotalSalesDsp = FormatValues.FDollar2(TotalSales)
-
+        # Format for total sales.
+        TotalSalesDsp = FormatValues.FDollar2(TotalSales)
 
     # Display receipt.
     print()
     print(f"         1.        2.        3         4         5.        6.        7.        8")
     print(f"12345678901234567890123456789012345678901234567890123456789012345678901234567890")
     print()
-    print(f"Honest Harry Car Sales                          Invoice Date:       {CURR_DATEDsp}         ")
+    print(f"Honest Harry Car Sales                          Invoice Date:       {CurrDateDsp}         ")
     print(f"Used Car Sale And Receipt                       Receipt No:          {ReceiptID:<12s}      ")
     print()
     print(f"                                          Sale price:                 {SellPriceDsp:>10s}  ")
@@ -289,5 +285,42 @@ while True:
     print(f"                                         Financing      Total        Monthly               ")
     print(f"      # Years            # Payments         Fee         Price        Payment               ")
     print(f"      ----------------------------------------------------------------------               ")
+
+    for Years in range(1, 4):
+    
+        # Calculation for financing Fee:
+        FinFee = FIN_FEE * Years
+
+        # Calculation for total sales price
+        TotalSalesPrice = TotalSales + FinFee
+
+        # Calculation for Number of months:
+        NumMons = Years * 12
+
+        # Calculation for Monthly payment:
+        MonPayment = TotalSalesPrice / NumMons
+
+        # Calculation for the first payment date:
+        if CURR_DATE.day >= 25:
+            NumMons.month + 1
+        else:
+            break
+
+        # Format for payments.
+        MonPaymentsDsp = FormatValues.FDollar2(MonPayment)
+
+        # Format for financing fee.
+        FinFeeDsp = FormatValues.FDollar2(FinFee)
+
+        # Format for total sales price.
+        TotalSalePriceDsp = FormatValues.FDollar2(TotalSalesPrice)
+        
+
+    print(f"      {Years:<2s}       {NumMons:<2s}      {FinFeeDsp:<7s}     {TotalSalePriceDsp:<10s}      {MonPaymentsDsp:<7s}")       
+    print(f"      ----------------------------------------------------------------------               ")
+    #print(f"      First payment date: {}")
+    print(f"--------------------------------------------------------------------------------           ")
+
+    Wait = input("Press enter key to continue.")
 
 # Any housekeeping duties at the end of the program.
