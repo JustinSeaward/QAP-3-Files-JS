@@ -27,12 +27,12 @@ FIN_FEE = 39.99 # $39.99 per year.
 
 while True:
     # Gather user information.
-
+    
     while True:
         print()
         # Input and validations for customer first name.
 
-        CustFN = input("Enter the customers first name (END to quit): ").title()
+        CustFN = "justin"#input("Enter the customers first name (END to quit): ").title()
         if CustFN == "":
             print()
             print("   Data Entry Error - Customer first name cannot be blank.")
@@ -53,7 +53,7 @@ while True:
         # Input and validations for customer last name.
 
         print()
-        CustLN = input("Enter the customers last name: ").title()
+        CustLN = "seaward"#input("Enter the customers last name: ").title()
         if CustLN == "":
             print()
             print("    Data Entry Error - Customer last name cannot be blank.")
@@ -72,7 +72,7 @@ while True:
 
         try:
             print()
-            PhoNum = input("Enter the phone number (7091235678): ")
+            PhoNum = "7092274569"#input("Enter the phone number (9999999999): ")
             if PhoNum == "":
                 print()
                 print("    Data Entry Error - Phone number canot be blank.")
@@ -96,7 +96,7 @@ while True:
         # Input and validations for plate number.
 
         print()
-        PlateNum = input("Enter the plate number (LLL000): ").upper()
+        PlateNum = "asd123"#input("Enter the plate number (LLL000): ").upper()
         if PlateNum == "":
             print()
             print("    Date entry error - Plate number cannot be blank.")
@@ -121,7 +121,7 @@ while True:
         # Input for car make.
 
         print()
-        CarMake = input("Enter the car make (ie: Toyota): ")
+        CarMake = "Honda"#input("Enter the car make (ie: Toyota): ")
         if CarMake == "":
             print()
             print("     Data Entry Error - Car make cannot be blank.")
@@ -133,7 +133,7 @@ while True:
         # Input for the Car Model.
 
         print()
-        CarModel = input("Enter the car model (ie: Corolla): ")
+        CarModel = "Civic"#input("Enter the car model (ie: Corolla): ")
         if CarModel == "":
             print()
             print("     Data Entry Error - Car model cannot be blank.")
@@ -145,7 +145,7 @@ while True:
          # Input for the Car Model.
 
         print()
-        CarYear = input("Enter the car year (ie: 1999): ")
+        CarYear = "2013"#input("Enter the car year (ie: 1999): ")
         if CarYear == "":
             print()
             print("     Data Entry Error - Car year cannot be blank.")
@@ -157,7 +157,7 @@ while True:
         # Input and validation for sell price.
 
         print()
-        SellPrice = input("Enter the Selling price: ")
+        SellPrice = 45000#input("Enter the Selling price: ")
         SellPrice = float(SellPrice)
         if  SellPrice > 50000:
             print()
@@ -171,7 +171,7 @@ while True:
         # Input and validations for trade-in amount.
 
         print()
-        TradeAmt = input("Enter the trade in amount: ")
+        TradeAmt = 2500#input("Enter the trade in amount: ")
         TradeAmt = float(TradeAmt)
         if TradeAmt > SellPrice:
             print()
@@ -185,7 +185,7 @@ while True:
         # Input and validation for sales persons name.
 
         print()
-        SalesPersonName = input("Enter the sales person name: ")
+        SalesPersonName = "Mo"#input("Enter the sales person name: ")
         if SalesPersonName == "":
             print()
             print("    Data Entry Error - Customer name cannot be blank.")
@@ -194,100 +194,102 @@ while True:
             break
         #print(SalesPersonName) #test print
 
-        # Start of program calculations.
+    # Start of program calculations.
 
-        # Calculation for price after trade-in.
-        PriAftTrade = SellPrice - TradeAmt
+    # Calculation for price after trade-in.
+    PriAftTrade = SellPrice - TradeAmt
 
-        # if statement for the licence fee.
-        if SellPrice <= 15000:
-            LincFee = LICN_FEE_LOW
-        elif SellPrice > 15000:
-            LincFee = LICN_FEE_HIGH
-        else:
-            break
+    # if statement for the licence fee.
+    if SellPrice <= 15000:
+        LincFee = LICN_FEE_LOW
+    elif SellPrice > 15000:
+        LincFee = LICN_FEE_HIGH
+    else:
+        break
 
-        # Calculation for tranfer fee with if statement.
-        TransFee = SellPrice * 0.01
-        if SellPrice > 20000:
-            TransFee = SellPrice + (SellPrice * 0.016)
+    # Calculation for tranfer fee with if statement.
+    TransFee = SellPrice * 0.01
+    if SellPrice > 20000:
+        TransFee = SellPrice * 0.016
+    else:
+        break    
 
-        # Calculation for sub total.
-        SubTotal = PriAftTrade + LincFee + TransFee
+    # Calculation for sub total.
+    SubTotal = PriAftTrade + LincFee + TransFee
 
-        # Calculation for taxes.
-        TaxTotal = SubTotal * HST_ESP
+    # Calculation for taxes.
+    TaxTotal = SubTotal * HST_ESP
 
-        # Calculation for total sales price.
-        TotalSales = SubTotal + TaxTotal
+    # Calculation for total sales price.
+    TotalSales = SubTotal + TaxTotal
 
-        # Recepit formats.
-        # Invoice date format.
-        CurrDateDsp = datetime.datetime.strftime(CURR_DATE, "%b %d, %Y")
+    # Recepit formats.
 
-        # Format for the Receipt ID.
-        ReceiptID = CustFN[0] + CustLN[0] + "-" + PlateNum[3:6] + "-" + PhoNum[6:11] 
+    # Format for sell price.
+    SellPriceDsp = FormatValues.FDollar2(SellPrice)
 
-        # Format for sell price.
-        SellPriceDsp = FormatValues.FDollar2(SellPrice)
+    # Format for trade-in.
+    TradeAmtDsp = FormatValues.FDollar2(TradeAmt)
 
-        # Format for trade-in.
-        TradeAmtDsp = FormatValues.FDollar2(TradeAmt)
+    # Format for customer name.
+    CustNameDsp = CustName = CustFN[0] + "." + " " + CustLN
 
-        # Format for customer name.
-        CustNameDsp = CustName = CustFN[0] + "." + " " + CustLN
+    # Format for phone number.
+    PhoNumDsp = "(" + PhoNum[0:3] + ")" + " " + PhoNum[3:6] + "-" + PhoNum[6:10] 
 
-        # Format for phone number.
-        PhoNumDsp = "(" + PhoNum[0:3] + ")" + " " + PhoNum[3:6] + "-" + PhoNum[6:10] 
+    # Format for car details.
+    CarDetailsDsp = CarYear + " " + CarMake + " " + CarModel 
 
-        # Format for car details.
-        CarDetailsDsp = CarYear + " " + CarMake + " " + CarModel 
+    # Format for price after trade-in.
+    PriAftTradeDsp = FormatValues.FDollar2(PriAftTrade)
 
-        # Format for price after trade-in.
-        PriAftTradeDsp = FormatValues.FDollar2(PriAftTrade)
+    # Format for license fee.
+    LincDsp = FormatValues.FDollar2(LincFee)
 
-        # Format for license fee.
-        LincDsp = FormatValues.FDollar2(LincFee)
+    # Fromat for transfer fee:
+    TransFeeDsp = FormatValues.FDollar2(TransFee)
 
-        # Fromat for transfer fee:
-        TransFeeDsp = FormatValues.FDollar2(TransFee)
+    # Format for sub total.
+    SubTotalDsp = FormatValues.FDollar2(SubTotal)
 
-        # Format for sub total.
-        SubTotalDsp = FormatValues.FDollar2(SubTotal)
+    # Format for HST.
+    HSTDsp = FormatValues.FDollar2(TaxTotal)
 
-        # Format for HST.
-        HSTDsp = FormatValues.FDollar2(TaxTotal)
+    # Format for total sales.
+    TotalSalesDsp = FormatValues.FDollar2(TotalSales)
 
-        # Format for total sales.
-        TotalSalesDsp = FormatValues.FDollar2(TotalSales)
-
+    # Format for the Receipt ID.
+    ReceiptID = CustFN[0] + CustLN[0] + "-" + PlateNum[3:6] + "-" + PhoNum[6:11]
+    
     # Display receipt.
     print()
     print(f"         1.        2.        3         4         5.        6.        7.        8")
     print(f"12345678901234567890123456789012345678901234567890123456789012345678901234567890")
     print()
-    print(f"Honest Harry Car Sales                          Invoice Date:       {CurrDateDsp}         ")
-    print(f"Used Car Sale And Receipt                       Receipt No:          {ReceiptID:<12s}      ")
+    # Invoice date format.
+    CurrDateDsp = datetime.datetime.strftime(CURR_DATE, "%b %d, %Y")
+    print(f"Honest Harry Car Sales                          Invoice Date:       {CurrDateDsp:>11s}     ")
+    print(f"Used Car Sale And Receipt                       Receipt No:         {ReceiptID:>12s}       ")
     print()
     print(f"                                          Sale price:                 {SellPriceDsp:>10s}  ")
     print(f"Sold to:                                  Trade Allowance:            {TradeAmtDsp:>10s}   ")
     print(f"                                          --------------------------------------           ")
-    print(f"     {CustNameDsp:>29s}                   Price after Trade:          {PriAftTradeDsp:>10s}")
-    print(f"      {PhoNumDsp:>14s}                    License Fee:                {LincDsp:>10s}       ")
+    print(f"     {CustNameDsp:<19s}                  Price after Trade:          {PriAftTradeDsp:>10s} ")
+    print(f"      {PhoNumDsp:<14s}                      License Fee:                {LincDsp:>10s}     ")
     print(f"                                          Transfer Fee:               {TransFeeDsp:>10s}   ")
     print(f"                                          --------------------------------------           ")
     print(f"Car Details:                              Subtotal:                   {SubTotalDsp:>10s}   ")
     print(f"                                          HST:                        {HSTDsp:>10s}        ")
-    print(f"     {CarDetailsDsp:<29s}                 --------------------------------------           ")
+    print(f"     {CarDetailsDsp:<19s}                  --------------------------------------          ")
     print(f"                                          Total sales price:          {TotalSalesDsp:>10s} ")
     print(f"--------------------------------------------------------------------------------           ")
     print()
-    print(f"                                         Financing      Total        Monthly               ")
-    print(f"      # Years            # Payments         Fee         Price        Payment               ")
+    print(f"                                  Financing        Total        Monthly                    ")
+    print(f"      # Years       # Payments       Fee           Price        Payment                    ")
     print(f"      ----------------------------------------------------------------------               ")
 
-    for Years in range(1, 4):
-    
+    for Years in range(1, 5, 1):
+
         # Calculation for financing Fee:
         FinFee = FIN_FEE * Years
 
@@ -300,12 +302,6 @@ while True:
         # Calculation for Monthly payment:
         MonPayment = TotalSalesPrice / NumMons
 
-        # Calculation for the first payment date:
-        if CURR_DATE.day >= 25:
-            NumMons.month + 1
-        else:
-            break
-
         # Format for payments.
         MonPaymentsDsp = FormatValues.FDollar2(MonPayment)
 
@@ -314,11 +310,25 @@ while True:
 
         # Format for total sales price.
         TotalSalePriceDsp = FormatValues.FDollar2(TotalSalesPrice)
-        
 
-    print(f"      {Years:<2s}       {NumMons:<2s}      {FinFeeDsp:<7s}     {TotalSalePriceDsp:<10s}      {MonPaymentsDsp:<7s}")       
+         # Adds an extra month to the number of months if the current day is >= 25th.
+        if CURR_DATE.day >= 25:
+            NumMons += 1
+
+        print(f"          {Years}            {NumMons:<2d}       {FinFeeDsp:<7s}          {TotalSalePriceDsp:<10s}    {MonPaymentsDsp:<7s}")       
     print(f"      ----------------------------------------------------------------------               ")
-    #print(f"      First payment date: {}")
+
+    # First payment date:
+    # Breaking up the current date into the day, month, year.
+    CurrDay = CURR_DATE.day
+    CurrMonth = CURR_DATE.month
+    CurrYear = CURR_DATE.year
+
+    CurrDatePlus1Month = datetime.datetime(CurrDay, CurrMonth + 1, CurrYear)
+    FirPayDate = CurrDatePlus1Month
+
+    FirPayDateDsp = datetime.datetime.strftime(FirPayDate, "%d-%b-%y")
+    print(f"      First payment date: {FirPayDateDsp:<9s}")
     print(f"--------------------------------------------------------------------------------           ")
 
     Wait = input("Press enter key to continue.")
