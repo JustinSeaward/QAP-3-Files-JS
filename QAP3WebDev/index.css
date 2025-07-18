@@ -1,0 +1,87 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aquamarine;
+}
+
+.mainbox {
+  width: 1000px;
+  height: 600px; /* Will be removed later. */
+  background-color: white;
+  border: 3px solid gray;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* General classes for the page. */
+.boldtext {
+  font-weight: 700;
+}
+
+.centertext {
+  text-align: center;
+}
+
+.righttext {
+  text-align: right;
+}
+
+.lefttext {
+  text-align: left;
+}
+
+
+/* Styles for the header section. */
+
+
+/* Styles for the nav section. */
+
+
+/* Styles for the main / sections section. */
+
+
+/* Styles for a table to display a customer receipt.*/
+
+table,
+th,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 2px;
+  margin: auto;
+}
+
+.lawntable {
+  width: 350px;
+  height: auto;
+  margin: auto;
+}
+
+.lawntable .righttext {
+  text-align: right;
+}
+
+.lawntable .lefttext {
+  text-align: left;
+}
+
+.lawntable .tophead {
+  background-color: rgb(237, 185, 81);
+  text-align: center;
+  font-weight: 600;
+  font-size: 12pt;
+}
+
+.lawntable .bottomfoot {
+  background-color: rgb(237, 185, 81);
+  text-align: center;
+}
+
+/* Styles for the footer section. */
+
