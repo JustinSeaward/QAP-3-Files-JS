@@ -61,6 +61,7 @@ td {
   width: 350px;
   height: auto;
   margin: auto;
+  margin-top: 50px;
 }
 
 .lawntable .righttext {
@@ -81,6 +82,7 @@ td {
 .lawntable .bottomfoot {
   background-color: rgb(237, 185, 81);
   text-align: center;
+  font-weight: 700;
 }
 
 /* Styles for the footer section. */

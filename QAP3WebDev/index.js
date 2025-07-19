@@ -1,6 +1,6 @@
 // Desc: Program for Mos lawn care services.
 // Author: Justin Seaward
-// Dates: July 16, 2025 - ??
+// Dates: July 16, 2025 - July 19, 2025.
 
 
 var $ = function (id) {
@@ -38,22 +38,30 @@ const LAWN_MOW_COST = .07;   // 0.07 cent charge per square foot.
 const FERT_COST = .05;       // 0.05 cent charge per square foot.
 
 const HST_ESP = .15;         // 15% tax rate for the HST.
-const ENVIRO_ESP = .03;      // 3% charge for the environmental tax.
+const ENVIRO_ESP = .0014;    // 3% charge for the environmental tax.
 
-// Start main program here.
+// Start main program here.//
 
-// Gather user input.
+// Gather user input.//
 
-let custName = "John Billy William";//prompt("Enter the customer name: ");
-let stAdd = "123 Main street";//prompt("Enter the customer street adresses: ");
-let city = "Deep Bite";//prompt("Enter the customer city: ");
-let phoNum = "7095555555";//prompt("Enter the customers phone number: ");
+// Input customer full name.
+let custName = prompt("Enter the customer name: ");
 
+// Input customer street address.
+let stAdd = prompt("Enter the customer street adresses: ");
 
-let totSqFt = "2000";//prompt("Enter the total square footage: ");
+// Input customer city.
+let city = prompt("Enter the customer city: ");
+
+// Input customer phone number.
+let phoNum = prompt("Enter the customers phone number: ");
+
+// Input total square footage of the customers lawn.
+let totSqFt = prompt("Enter the total square footage: ");
 totSqFt = parseInt(totSqFt);
 
-// Calculations for program.
+// Calculations for program. //
+
 // Calculation for border size and cost.
 let bordSize = totSqFt * BORDER_AREA_ESP;
 let bordCost = bordSize * BORDER_COST;
@@ -103,12 +111,12 @@ document.writeln("<td class='righttext'>" + cur2Format.format(bordCost) + "&nbsp
 document.writeln("</tr>");
 
 document.writeln("<tr>");
-document.writeln("<td>&nbsp; Mowing Cost:</td>");
+document.writeln("<td>&nbsp; Mowing cost:</td>");
 document.writeln("<td class='righttext'>" + cur2Format.format(lawnCost) + "&nbsp;" + "</td>");
 document.writeln("</tr>");
 
 document.writeln("<tr>");
-document.writeln("<td>&nbsp; Fertilizer Cost: <br /></td>");
+document.writeln("<td>&nbsp; Fertilizer cost: <br /></td>");
 document.writeln("<td class='righttext'>" + cur2Format.format(fertCost) + "&nbsp;" + "</td>");
 document.writeln("</tr>");
 
@@ -118,7 +126,7 @@ document.writeln("<td>" + "<br/>" + "</td>");
 document.writeln("</tr>");
 
 document.writeln("<tr>");
-document.writeln("<td>&nbsp; Total Charges:</td>");
+document.writeln("<td>&nbsp; Total charges:</td>");
 document.writeln("<td class='righttext'>" + cur2Format.format(totalCharge) + "&nbsp;" + "</td>");
 document.writeln("</tr>");
 
