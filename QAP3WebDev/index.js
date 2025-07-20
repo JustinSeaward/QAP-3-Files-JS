@@ -1,5 +1,5 @@
 // Desc: Program for Mos lawn care services.
-// Author: Justin Seaward
+// Author: Justin Seaward.
 // Dates: July 16, 2025 - July 19, 2025.
 
 
@@ -40,6 +40,7 @@ const FERT_COST = .05;       // 0.05 cent charge per square foot.
 const HST_ESP = .15;         // 15% tax rate for the HST.
 const ENVIRO_ESP = .0014;    // 3% charge for the environmental tax.
 
+
 // Start main program here.//
 
 // Gather user input.//
@@ -55,6 +56,7 @@ let city = prompt("Enter the customer city: ");
 
 // Input customer phone number.
 let phoNum = prompt("Enter the customers phone number: ");
+let phoNumDsp = phoNum.slice(0,3) + "-" + phoNum.slice(4,6) + "-" + phoNum.slice(6,11);
 
 // Input total square footage of the customers lawn.
 let totSqFt = prompt("Enter the total square footage: ");
@@ -99,7 +101,7 @@ document.writeln("<td colspan='2'>");
 document.writeln("<br />&nbsp; Customer details:<br /><br />");
 document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + custName + "<br />");
 document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + stAdd + "<br />");
-document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + city + "," + "&nbsp;" + phoNum + "<br />");
+document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + city + "," + "&nbsp;" + phoNumDsp + "<br />");
 document.writeln("<br />")
 document.writeln("&nbsp;&nbsp;Property size (in Sq Ft): &nbsp;" + totSqFt + "<br />");
 document.writeln("<br />");
@@ -141,7 +143,7 @@ document.writeln("<td class='righttext'>" + cur2Format.format(hST) + "&nbsp;" + 
 document.writeln("</tr>");
 
 document.writeln("<tr>");
-document.writeln("<td>&nbsp; Environmental tax (HST): </td>");
+document.writeln("<td>&nbsp; Environmental tax: </td>");
 document.writeln("<td class='righttext'>" + cur2Format.format(envirTax) + "&nbsp;" + "</td>");
 document.writeln("</tr>");
 

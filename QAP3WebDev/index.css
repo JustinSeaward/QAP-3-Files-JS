@@ -64,6 +64,10 @@ td {
   margin-top: 50px;
 }
 
+.lawntable td {
+  width: 61%;
+}
+
 .lawntable .righttext {
   text-align: right;
 }
