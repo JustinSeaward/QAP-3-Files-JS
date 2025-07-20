@@ -117,8 +117,8 @@ while True:
 
     while True:
         # Input for car make.
-
-        CarMake = input("Enter the car make (ie: Toyota): ")
+        print()
+        CarMake = input("Enter the car make (ie: Toyota): ")    
         if CarMake == "":
             print()
             print("     Data Entry Error - Car make cannot be blank.")
@@ -128,7 +128,7 @@ while True:
 
     while True:
         # Input for the Car Model.
-
+        print()
         CarModel = input("Enter the car model (ie: Corolla): ")
         if CarModel == "":
             print()
@@ -139,7 +139,7 @@ while True:
 
     while True:
          # Input for the Car Model.
-
+        print()
         CarYear = input("Enter the car year (ie: 1999): ")
         if CarYear == "":
             print()
@@ -150,7 +150,7 @@ while True:
 
     while True:
         # Input and validation for sell price.
-
+        print()
         SellPrice = input("Enter the Selling price: ")
         SellPrice = float(SellPrice)
         if  SellPrice > 50000:
@@ -163,7 +163,7 @@ while True:
 
     while True:
         # Input and validations for trade-in amount.
-
+        print()
         TradeAmt = input("Enter the trade in amount: ")
         TradeAmt = float(TradeAmt)
         if TradeAmt > SellPrice:
@@ -176,7 +176,7 @@ while True:
 
     while True:
         # Input and validation for sales persons name.
-
+        print()
         SalesPersonName = input("Enter the sales person name: ")
         if SalesPersonName == "":
             print()
@@ -244,13 +244,18 @@ while True:
     # Format for the Receipt ID.
     ReceiptID = CustFN[0] + CustLN[0] + "-" + PlateNum[3:6] + "-" + PhoNum[6:11]
     
-    # Display receipt.
+    ### Display receipt. ###
+
     #print()
     #print(f"         1.        2.        3         4         5.        6.        7.        8")
     #print(f"12345678901234567890123456789012345678901234567890123456789012345678901234567890")
     print()
-    # Invoice date format.
+    print()
+    print()
+
+    # Invoice date format. 
     CurrDateDsp = datetime.datetime.strftime(CURR_DATE, "%b %d, %Y")
+
     print(f"Honest Harry Car Sales                          Invoice Date:       {CurrDateDsp:>11s}     ")
     print(f"Used Car Sale And Receipt                       Receipt No:         {ReceiptID:>12s}       ")
     print()
@@ -301,14 +306,14 @@ while True:
 
 
         print(f"          {Years}            {NumMons:>2d}          {FinFeeDsp:>7s}       {TotalSalePriceDsp:>10s}     {MonPaymentsDsp:>8s}")       
-    print(f"      ---------------------------------------------------------------------               ")
+    print(f"      --------------------------------------------------------------------                 ")
 
     # Function for first payment date:
     
     FirstPayDate = FormatValues.FirstPayDate(CURR_DATE)
 
     print(f"      First payment date: {FirstPayDate}")
-    print(f"--------------------------------------------------------------------------------           ")
+    print(f"---------------------------------------------------------------------------------          ")
     print(f"                     Best used cars at the best prices !                                   ")
 
     Wait = input("Press enter key to continue.")
