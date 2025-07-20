@@ -41,9 +41,9 @@ const HST_ESP = .15;         // 15% tax rate for the HST.
 const ENVIRO_ESP = .0014;    // 3% charge for the environmental tax.
 
 
-// Start main program here.//
+// Start main program here. //
 
-// Gather user input.//
+// Gather user input. //
 
 // Input customer full name.
 let custName = prompt("Enter the customer name: ");
